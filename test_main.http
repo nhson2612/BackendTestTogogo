@@ -1,0 +1,45 @@
+### CREATE NEW EMPLOYEE WITH VALID INFORMATION
+POST http://127.0.0.1:8000/employees/
+Content-Type: application/json
+
+{
+  "name": "John Doe 111",
+  "department": "Marketing",
+  "position": "Manager",
+  "email": "john.doe11@example.com",
+  "start_date": "2025-09-01"
+}
+
+### CREATE NEW EMPLOYEE WITH DUPLICATE EMAIL
+POST http://127.0.0.1:8000/employees
+Content-Type: application/json
+
+{
+  "name": "John Doe 1",
+  "department": "Marketing",
+  "position": "Manager",
+  "email": "john.doe11@gmail.com",
+  "start_date": "2025-09-01"
+}
+
+### GET ALL EMPLOYEES WHO STARTED AFTER A CERTAIN DATE WITH PAGE SIZE, PAGE NUMBER AND DESC ORDER BY START DATE BY DEFAULT
+GET http://127.0.0.1:8000/employees?department=Marketing&start_date=2021-12-01&date_filter=before&order=asc&page=0&size=2
+
+### UPDATE OR CREATE EMPLOYEE SHIFT
+POST http://127.0.0.1:8000/employees/7/shift
+Content-Type: application/json
+
+{
+  "shift": "night",
+  "work_day": "2025-09-16"
+}
+
+
+### UPDATE OR CREATE EMPLOYEE SHIFT WITH INVALID SHIFT
+POST http://127.0.0.1:8000/employees/7/shift
+Content-Type: application/json
+
+{
+  "shift": "afternoon",
+  "work_day": "2025-09-16"
+}
