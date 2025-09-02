@@ -1,4 +1,7 @@
-## 1. Cài đặt Python
+## 1. Cài đặt Python và chạy
+```angular2html
+uvicorn main:app --reload
+```
 
 
 ## 2. Kiểm tra API
