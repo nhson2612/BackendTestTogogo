@@ -32,10 +32,8 @@ class EmployeeService:
         employees, total_elements = EmployeeRepository.get_by_department_paginated(
             session, department, start_date, date_filter, order, page, size
         )
-
         if total_elements == 0:
             return None
-
         return {
             "content": employees,
             "pageNumber": page,
@@ -44,3 +42,4 @@ class EmployeeService:
             "totalPages": math.ceil(total_elements / size),
             "last": (page + 1) * size >= total_elements,
         }
+
